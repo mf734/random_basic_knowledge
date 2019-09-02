@@ -2,7 +2,7 @@ class Solution:
 	def bubble_sort(self, data):
 		for i in range(SIZE,-1,-1):
 			for j in range(i):
-				if data[j]>data[j+1]:
+				if data[j] > data[j+1]:
 					data[j], data[j+1] = data[j+1], data[j]
 
 
@@ -10,15 +10,17 @@ class Solution1:
 	# 两层遍历，每次找最小值
 	def select_sort(self, data):
 		for i in range(SIZE-1):
+			min_dex = i
 			for j in range(i+1, SIZE):
-				if data[i] > data[j]:
-					data[i], data[j] = data[j], data[i]
+				if data[min_dex] > data[j]:
+					min_dex = j
+			data[i], data[min_dex] = data[min_dex], data[i]
 
 
 class Solution2:
 	# 两个指针，一个遍历未排序的数组，一个把数字放到排序好了的数组中
 	def insert_sort(self, data):
-		for i in range(1, data):
+		for i in range(1, size):
 			tmp = data[i]
 			no = i - 1
 			while no >= 0 and tmp < data[no]:
@@ -30,7 +32,6 @@ class Solution2:
 class Solution3:
 	# 中间逻辑和insert一样，只是用jmp去排序
 	def shell_sort(self, data):
-		k = 1
 		jmp = SIZE//2
 		while jmp != 0:
 			for i in range(jmp, size):
@@ -97,7 +98,7 @@ class Solution5_1():
 		num = data[0]
 		start = [x for x in data[1:] if x <= num]
 		end = [x for x in data[1:] if x > num]
-		return quick_so(start) + [num] + quick_so[end]
+		return quick_so(start) + [num] + quick_so(end)
 
 
 class Solution5():
