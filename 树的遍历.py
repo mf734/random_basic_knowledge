@@ -6,6 +6,7 @@ def inorderT(self, root):
 	return self.inorderT(root.left) + [root.val] + self.inorderT(root.right)
 
 
+
 # 1.2 循环实现中序遍历，利用栈stack结构
 # stack用来遍历，sol用来输出
 # 用p去遍历，用stack记录回溯的位置
@@ -118,7 +119,6 @@ def levelOrder2(self, root):
 		if p.right:
 			queue.append(p.right)
 	return sol
-
 
 
 
